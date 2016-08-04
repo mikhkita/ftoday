@@ -1,7 +1,8 @@
 .fadeRight,
 .fadeLeft,
 .fadeIn,
-.fadeDown{
+.fadeDown,
+.showIn{
 	-webkit-transition: all 800ms ease-out;
 	   -moz-transition: all 800ms ease-out;
 	    -ms-transition: all 800ms ease-out;
@@ -60,8 +61,14 @@
 .fadeIn{
    	opacity: 0;
 }
+.showIn {
+	visibility: hidden;
+}
 	.fadeIn-show{
 	    opacity: 1;
+	}
+	.showIn-show{
+	    visibility: visible;
 	}
 .scale{
 	-webkit-transition: all 1800ms ease-out;

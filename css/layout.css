@@ -158,10 +158,10 @@ button {
 	}
 
 .bold{
-	font-family: 'Circe-Bold';
+	font-family: 'proxima_nova_rgbold';
 }
 b {
-	font-family: "Circe-Bold";
+	font-family: "proxima_nova_rgbold";
 	font-weight: normal;
 }
 .underline{
@@ -441,14 +441,14 @@ b {
 					position: relative;
 					left: 10px;
 				}
-					.b-2 .b-block .keys li.active {
+					.b-2 .b-block .keys li.ui-tabs-active {
 						cursor: default;
 					}
-					.b-2 .b-block .keys li:hover span:nth-child(1),.b-2 .b-block .keys li.active span:nth-child(1) {
+					.b-2 .b-block .keys li:hover span:nth-child(1),.b-2 .b-block .keys li.ui-tabs-active span:nth-child(1) {
 						background-color: #e74d47;
 						color: #fff;
 					}
-					.b-2 .b-block .keys li:hover span:nth-child(2),.b-2 .b-block .keys li.active span:nth-child(2) {
+					.b-2 .b-block .keys li:hover span:nth-child(2),.b-2 .b-block .keys li.ui-tabs-active span:nth-child(2) {
 						filter: none;
 	                    -webkit-filter: grayscale(0);
 					}
@@ -487,7 +487,7 @@ margin-top: 24px;
     					position: absolute;
     					visibility: hidden;
     				}
-    				#b-key-1 .top .diagram img:last-child{
+    				#key-1 .top .diagram img:last-child{
     					visibility: visible;
     				}
     				
@@ -691,18 +691,16 @@ margin-top: 24px;
 			background-position: 50%;
 			height: 607px;
 			position: absolute;
-			visibility: visible;
+			display: none;
 		}
 		.b-4 .b-block .step-1 {
 			width: 1017px;
 			background-image: url("../i/step-1.png");
-			visibility: hidden;
-			
+			display: block;
 		}
 		.b-4 .b-block .step-2 {
 			width: 1022px;	
 			background-image: url("../i/step-2.png");
-			
 		}
 			.b-4 .b-block .step .steps {
 				margin-left: 55px;
@@ -716,11 +714,16 @@ margin-top: 24px;
 					margin-top: 17px;
 				}
 					.b-4 .b-block .step .steps span {
-						width: 100px;						
+						width: 165px;						
 						height: 87px;						
 						display: block;						
 						float: left;
+						cursor: pointer;
 					}
+						.b-4 .b-block .step .steps span.active {
+							cursor: default;
+							width: 240px;
+						}
 			.b-4 .b-block .step .step-cont {
 				padding: 57px 0 0 103px;
 			}
@@ -1005,10 +1008,44 @@ margin-top: 24px;
 						left: -47px;
 						z-index: 10;
 					}
+.b-map {
+
+}
+	.b-map .contacts {
+		position: absolute;
+		left: 50%;
+		margin-left: 78px;
+		z-index: 10;
+		top: 120px;
+		width: 388px;
+		padding: 7px 9px 35px;
+		background-color: #f3f0eb;
+		box-sizing: border-box;
+		text-align: left;
+	}
+		.b-map .contacts h2 {
+			font-family: "proxima_nova_rgbold";
+			font-size: 45px;
+			color: rgb(39, 36, 37);
+			text-transform: uppercase;
+		}
+		.b-map .contacts .img {
+			width: 100%;
+			height: 249px;
+			background-size: cover;
+			background-position: 50%;
+		}
+		.b-map .contacts h3 {
+			font-size: 21px;
+			line-height: 1.2;
+			padding: 0 35px;
+			margin-top: 20px;
+		}
 #map_canvas {
 	width: 100%;
 	height: 788px;
 }
+
 .b-footer {
 	background-image:  url("../i/footer-back.jpg");
 	background-repeat: no-repeat;

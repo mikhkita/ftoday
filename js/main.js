@@ -20,6 +20,18 @@ $(document).ready(function(){
     $(window).resize(resize);
     resize();
 
+        var styles = [
+            {
+                "stylers": [
+                    { lightness: -10 },
+                    {saturation: -30}
+                    
+                ]
+            }
+        ]
+        var styledMap = new google.maps.StyledMapType(styles,
+            {name: "Styled Map"});
+
     var myOptions = {
         zoom: 17,
         center: new google.maps.LatLng(55.710520, 37.657727),
@@ -42,9 +54,12 @@ $(document).ready(function(){
         map: map,
         title: "Franchising Today"
     });
+    map.mapTypes.set('map_style', styledMap);
+    map.setMapTypeId('map_style');
 
-    function diagram($i) {
-        $(".diagram img").eq($i).css("visibility","visible");
+    function diagram($obj,i) {
+        $obj.find(".diagram img").eq(i).css("visibility","visible");
+        $obj.find(".diagram img").eq(i-1).css("visibility","hidden");
     }
 
     $('.b-3 .photo-slider').slick({
@@ -62,5 +77,18 @@ $(document).ready(function(){
       cssEase: 'linear',
       dots: true,
       arrows: false
+    });
+
+    $( "#key-tabs" ).tabs({
+        activate: function( event, ui ) {
+            ui.oldPanel.find(".diagram img:eq(-1)").css("visibility","hidden");
+            ui.newPanel.find(".diagram img").each(function(i, val) {
+                setTimeout(diagram, i*300,ui.newPanel,i);
+            });
+        }
+    });
+    $(".steps span:not(.active)").click(function() {
+        $($(this).attr("data-block")).show();
+        $(this).closest(".step").hide();
     });
 });
